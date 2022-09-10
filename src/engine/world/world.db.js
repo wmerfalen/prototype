@@ -1,27 +1,35 @@
+const { db, Sequelize, Model, DataTypes, } = require('../../db/');
+class World extends Model { }
+const WorldTableSchema = {
+    vnum: DataTypes.NUMBER,
+    title: DataTypes.STRING,
+    description: DataTypes.STRING,
+};
+const sequelize = db.orm;
 
-const Sequelize = require('sequelize');
-class PersistentStorage {
-	orm = null;
-	constructor(){
-		this.orm = new Sequelize('sqlite:memory:');
-		console.log(`PersistentStorage constructor`);
-	}
-}
+const W = {};
+module.exports = W;
 
-//// Option 1: Passing a connection URI
-//const sequelize = new Sequelize('sqlite::memory:');
-//const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
-//
-//// Option 2: Passing parameters separately (sqlite)
-//const sequelize = new Sequelize({
-//  dialect: 'sqlite',
-//  storage: 'path/to/database.sqlite'
-//});
-//
-//// Option 3: Passing parameters separately (other dialects)
-//const sequelize = new Sequelize('database', 'username', 'password', {
-//  host: 'localhost',
-//  dialect: /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
-//});
+W.initialized = false;
 
-module.exports = new PersistentStorage();
+W.__init_module = async () => {
+    World.init(WorldTableSchema, { sequelize, modelName: 'world' });
+    if(!W.initialized) {
+        await sequelize.sync();
+    }
+    W.initialized = true;
+};
+
+W.create = async (...data) => {
+    return await World.create(...data);
+};
+
+W.load_by_vnum = async (vnum) => {
+    return await World.findAll({
+        where: {
+            vnum,
+        },
+    });
+};
+
+W.model = World;

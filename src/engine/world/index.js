@@ -1,6 +1,6 @@
-//const map = require('./map/');
-//const rooms = require('./rooms/');
-const world_orm = require('./world.db.js');
+const F = {};
+module.exports = F;
+
 
 class World {
 	#vnum = 0;
@@ -10,26 +10,44 @@ class World {
 	#description = null;
 	#zones = [];
 
-	#orm_object = null;
+	#orm= null;
 
 	constructor(){
-		console.debug(`World.constructor`);
+	    this.debug(`World.constructor`);
+        this.orm = require('./world.db.js');
+        this.orm.__init_module();
+        this.model = new this.orm.model();
 	}
 
-	load(vnum){
-		this.orm_object = new world_orm();
-		this.orm_object.load_by_vnum(vnum);
+    debug(...line){
+        console.debug(...line);
+    }
 
-		this.title = this.orm_object.data.title;
-		this.description = this.orm_object.data.description;
-		this.zones = this.orm_object.data.zones;
-		return this.loaded;
+	async load(vnum){
+        this.vnum = vnum;
+        this.loaded = false;
+        const w = await this.orm.load_by_vnum(vnum);
+        if(!w){
+            this.loaded = false;
+            throw new Error(`Unable to load world`);
+        }
+        this.loaded = true;
+        this.title = w[0].title;
+        this.description = w[0].description;
+        return w;
 	}
+    async create(...data) {
+        return await this.orm.create(...data);
+    }
 }
 
-const F = {};
-module.exports = F;
+F.load_world = async (vnum) => {
+    const W = new World();
+    return await W.load(vnum);
+};
+
 
 F.create_world = async (...data) => {
-
+    const W = new World();
+    return await W.create(...data);
 };
