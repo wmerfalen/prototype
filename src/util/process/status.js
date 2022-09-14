@@ -26,7 +26,9 @@ S.__init_module = async (obj = null) => {
     }else{
         env = require('./env.js');
     }
-    console.debug(`proc status using env: `);
-    console.debug(JSON.stringify(env,null,2));
+    if(env?.debug) {
+        console.debug(`proc status using env: `);
+        console.debug(JSON.stringify(env,null,2));
+    }
 };
 
