@@ -29,6 +29,14 @@
 		- Shelled out
 			- Fire 2d2 shotgun shells at target dealing base weapon damage per shell
 			- Target has -10% damage resistence for 3d2 rounds
+		- Nade heaven
+			- Toss a well-timed frag exploding on impact
+				- deals 4d8 explosive damage
+		- Smesh
+			- Perform a single leg takedown
+			- Once target on their back, foot stomp their head for 5d9 damage
+			- Target gets up same turn
+			- Target takes 10% more CQC damage for 2 rounds
 
 ### MCMAP Instructor
 	- Abilities:
@@ -50,5 +58,23 @@
 						 // choose one extra technique
 						}
 					```
-### 
-
+		- Knee stomp
+			- Oblique kick target opponent's knee backwards
+				- if(roll('1d10') + strength > 5) { 
+				   // opponent is stuck on ground for 3 turns
+				  }
+			  - If this is the second knee on the same target
+					- opponent can only fight from their back
+					- unless teammate shoots them up with HGH, Durinabol, or Vicodin
+						- each time target takes damage
+							- they are shifted backwards in the lineup
+### OTR Specialist
+	- Abilities:
+		- Extortion
+			- A random teammate will turn on target
+				- Teammate deals their primary (first) ability against target
+		- Introspect
+			- Scan target
+				- trigger device that detonates ammunition 
+					- target has an empty cartridge and must reload before attacking again
+		- 
