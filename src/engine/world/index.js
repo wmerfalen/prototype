@@ -1,26 +1,26 @@
+const { proc } = require('../../util/process/status.js');
 const F = {};
 module.exports = F;
 
 
 class World {
-	#vnum = 0;
-	#loaded = false;
+	vnum = 0;
+	loaded = false;
 
-	#title = null;
-	#description = null;
-	#zones = [];
+	title = null;
+	description = null;
+	zones = [];
 
-	#orm= null;
+	orm= null;
 
 	constructor(){
 	    this.debug(`World.constructor`);
         this.orm = require('./world.db.js');
-        this.orm.__init_module();
         this.model = new this.orm.model();
 	}
 
     debug(...line){
-        console.debug(...line);
+        proc.debug(...line);
     }
 
 	async load(vnum){

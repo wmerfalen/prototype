@@ -1,3 +1,4 @@
+const { proc } = require('../../util/process/status.js');
 const { db, Sequelize, Model, DataTypes, } = require('../../db/');
 class World extends Model { }
 const WorldTableSchema = {
@@ -18,6 +19,7 @@ W.__init_module = async () => {
         await sequelize.sync();
     }
     W.initialized = true;
+    proc.status(`[DONE] W.__init_module`);
 };
 
 W.create = async (...data) => {

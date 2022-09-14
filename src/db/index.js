@@ -1,6 +1,7 @@
 const path = require('path');
 const Sequelize = require('sequelize');
-const {  Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+const { proc } = require('../util/process/status.js');
 
 class PersistentStorage {
 	orm = null;
@@ -11,7 +12,7 @@ class PersistentStorage {
         });
 	}
     log(str){
-        console.log(`PersistentStorage says: "${str}"`);
+        proc.log(`PersistentStorage says: "${str}"`);
     }
 }
 
