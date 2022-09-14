@@ -13,10 +13,11 @@ or:
 ``` sh
 node main.js -h
 ```
-or:
+or (for Windows users):
 ``` powershell
 node main.js /?
 ```
+NOTE: `-h` and `--help` should theoretically work for Windows users.
 
 # Options
 ## Using a custom config file
