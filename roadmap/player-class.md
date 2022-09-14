@@ -1,13 +1,3 @@
-# Feature roadmap
-## Combat System v.1.0
-	- Users get starter team
-	- Users enter world
-		- Can move around the world
-		- Can accept Contracts
-		- Missions contain randomized encounters with PvE enemies
-	- Team size is 4 PC
-	- NPC team size is 1-4
-	- Missions
 ## Archetypes
 	- Each PC has a unique class
 		- Has abilities
