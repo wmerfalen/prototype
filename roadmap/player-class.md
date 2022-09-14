@@ -14,7 +14,7 @@
 		- Has perks
 		- Has loadout
 		- Has attachments
-### Sniper
+### Long Range Ballistics
 	- Abilities:
 		- Bleed out
 			- Accidentally "miss" the target's head and instead hit their body causing them to have BLEED for 3 rounds causing (2d6) damage per round
@@ -24,7 +24,8 @@
 			- Fire a special projectile that injects dye that makes your targets ultra-visible
 			- targets are 15% more likely to receive crits
 			- Team gains %10 accuracy against marked targets for 2 rounds
-### Breacher
+			- Shot deals 2d7 damage on impact
+### Demolitions Expert
 	- Abilities:
 		- Shelled out
 			- Fire 2d2 shotgun shells at target dealing base weapon damage per shell
@@ -77,4 +78,21 @@
 			- Scan target
 				- trigger device that detonates ammunition 
 					- target has an empty cartridge and must reload before attacking again
-		- 
+		- Demoralize
+			- Fire an adrenaline filled shot that causes target:
+				- roll X, if success panic on next turn and skip this target's turn
+				- roll X, if success cause severe stress dealing 3d6 damage for 2 rounds
+### Infosec
+	- Abilities:
+		- Drone
+			- parasitic drone
+				- latches onto head and controls target for 1 round
+		- Deafening logistics
+			- bleeding eardrums
+			- sonic assault
+				- stun / disorient
+					- disorient has chance of friendly fire on affected targets
+		- Crop dust (medical defensive)
+			- Drone covers team with reviving mist of inhalable HGH
+		- Crop dust (offensive)
+			- Drone drops a smoke screen in front of target 2 enemies
